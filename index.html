@@ -6,6 +6,7 @@
   <title>la bio de ciner 🖤</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
   <style>
+    /* ---------- BASE ---------- */
     body {
       margin: 0;
       padding: 0;
@@ -18,7 +19,7 @@
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: clamp(2rem, 6vw, 3rem);
       margin-top: 1.5rem;
       letter-spacing: 3px;
       text-shadow: 0 0 12px #880000, 0 0 24px #aa0000;
@@ -26,50 +27,57 @@
     }
 
     .cross {
-      font-size: 5rem;
+      font-size: clamp(3rem, 8vw, 5rem);
       margin: 1rem 0;
       color: #660000;
       text-shadow: 0 0 10px #ff0000, 0 0 40px #880000;
       animation: pulse 2s infinite ease-in-out;
     }
 
-    .tiktok-frame {
-      display: block;
-      background: radial-gradient(circle at center, #111 0%, #000 100%);
-      border: 2px solid #550000;
-      box-shadow: 0 0 20px #880000, inset 0 0 10px #220000;
-      border-radius: 20px;
-      padding: 1rem;
-      margin: 2.5rem auto;
-      max-width: 800px;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      animation: fadeUp 1.5s ease-out forwards;
-      animation-delay: 0.5s;
+    .tikok {
+      margin: 1rem 0;
+      font-size: 1rem;
       opacity: 0;
+      animation: fadeUp 1.5s ease-out forwards;
+      animation-delay: 0.3s;
     }
 
-    .tiktok-frame:hover {
+    /* ---------- FRAMES ---------- */
+    .tiktok-frame,
+    .instagram-frame {
+      display: block;
+      margin: 2.5rem auto;
+      padding: 1.5rem;
+      border: 2px solid #550000;
+      box-shadow: 0 0 20px #880000, inset 0 0 10px #220000;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 700px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      opacity: 0;
+      animation: fadeUp 1.5s ease-out forwards;
+    }
+
+    .tiktok-frame {
+      background: radial-gradient(circle at center, #111 0%, #000 100%);
+      animation-delay: 0.6s;
+    }
+
+    .instagram-frame {
+      background: linear-gradient(145deg, #1a0000, #000);
+      animation-delay: 1.3s;
+    }
+
+    .tiktok-frame:hover,
+    .instagram-frame:hover {
       transform: scale(1.03);
       box-shadow: 0 0 30px #ff0000, inset 0 0 15px #330000;
     }
 
-    .instagram-frame {
-      display: block;
-      background: linear-gradient(145deg, #1a0000, #000);
-      border: 2px solid #550000;
-      border-radius: 12px;
-      padding: 1rem 2rem;
-      box-shadow: 0 0 20px #880000, inset 0 0 10px #220000;
-      transition: all 0.3s ease-in-out;
-      margin: 2.5rem auto;
-      animation: fadeUp 1.5s ease-out forwards;
-      animation-delay: 1.2s;
-      opacity: 0;
-    }
-
-    .instagram-frame:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 30px #ff0000, inset 0 0 15px #330000;
+    .redes-texto {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 8px #ff0000;
     }
 
     .instagram-frame a {
@@ -80,20 +88,19 @@
       text-shadow: 0 0 10px #ff0000;
     }
 
+    .instagram-frame a:hover {
+      text-shadow: 0 0 20px #ff0000;
+    }
+
+    /* ---------- ANIMACIONES ---------- */
     @keyframes fadeIn {
       from { opacity: 0; transform: scale(0.98); }
       to { opacity: 1; transform: scale(1); }
     }
 
     @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes pulse {
@@ -101,19 +108,31 @@
       50% { transform: scale(1.15); opacity: 0.8; }
     }
 
-    a {
-      color: #ff4444;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-shadow: 0 0 10px #ff0000;
-    }
-
+    /* ---------- FOOTER ---------- */
     footer {
       margin-top: 3rem;
       font-size: 0.9rem;
       color: #555;
+      text-shadow: 0 0 5px #220000;
+      animation: fadeIn 2s ease-in-out 1.6s forwards;
+      opacity: 0;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 600px) {
+      .tiktok-frame,
+      .instagram-frame {
+        width: 92%;
+        padding: 1.2rem;
+      }
+
+      .redes-texto {
+        font-size: 1rem;
+      }
+
+      .instagram-frame a {
+        font-size: 1.1rem;
+      }
     }
   </style>
 </head>
@@ -127,7 +146,6 @@
   <!-- TikTok -->
   <div class="tiktok-frame">
     <p class="redes-texto">seguime en TikTok 🖤</p>
-
     <blockquote class="tiktok-embed"
       cite="https://www.tiktok.com/@dessesus_cinerum"
       data-unique-id="dessesus_cinerum"
