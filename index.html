@@ -3,109 +3,172 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dessesus Cinerum</title>
-
+  <title>la bio de ciner 🖤</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
   <style>
-    /* === Estilo base === */
+    /* ---------- BASE ---------- */
     body {
       margin: 0;
       padding: 0;
-      background: radial-gradient(circle at center, #0b0b0b 0%, #000000 100%);
+      background-color: #000;
       color: #fff;
-      font-family: "Poppins", sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
+      font-family: 'Cinzel Decorative', serif;
       text-align: center;
       overflow-x: hidden;
-
-      /* Cursor de pata de gato (compatible con todos los navegadores de escritorio) */
-      cursor: url('https://cur.cursors-4u.net/nature/nat-10/nat999.ani'), 
-              url('https://cur.cursors-4u.net/nature/nat-10/nat999.png'),
-              auto;
+      cursor: url('https://sweezy-cursors.com/wp-content/uploads/cursor/cute-black-cat-walking-animated/cute-black-cat-walking-animated-custom-cursor.gif'), auto;
     }
 
-    /* === Título con glow === */
     h1 {
-      font-size: 3rem;
-      font-weight: 700;
+      font-size: clamp(2rem, 6vw, 3rem);
+      margin-top: 1.5rem;
       letter-spacing: 3px;
-      color: #fff;
-      text-shadow: 0 0 20px #ff1f71, 0 0 40px #ff1f71;
-      margin-bottom: 20px;
+      text-shadow: 0 0 12px #880000, 0 0 24px #aa0000;
+      animation: fadeIn 2s ease-in-out;
     }
 
-    /* === Sección de redes === */
-    .socials {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      align-items: center;
+    .cross {
+      font-size: clamp(3rem, 8vw, 5rem);
+      margin: 1rem 0;
+      color: #660000;
+      text-shadow: 0 0 10px #ff0000, 0 0 40px #880000;
+      animation: pulse 2s infinite ease-in-out;
     }
 
-    .socials iframe, .socials blockquote {
-      width: 90vw;
-      max-width: 400px;
+    .tikok {
+      margin: 1rem 0;
+      font-size: 1rem;
+      opacity: 0;
+      animation: fadeUp 1.5s ease-out forwards;
+      animation-delay: 0.3s;
+    }
+
+    /* ---------- FRAMES ---------- */
+    .tiktok-frame,
+    .instagram-frame {
+      display: block;
+      margin: 2.5rem auto;
+      padding: 1.5rem;
+      border: 2px solid #550000;
+      box-shadow: 0 0 20px #880000, inset 0 0 10px #220000;
       border-radius: 16px;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 10px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 0 15px rgba(255, 31, 113, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 90%;
+      max-width: 700px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      opacity: 0;
+      animation: fadeUp 1.5s ease-out forwards;
     }
 
-    .socials iframe:hover, .socials blockquote:hover {
+    .tiktok-frame {
+      background: radial-gradient(circle at center, #111 0%, #000 100%);
+      animation-delay: 0.6s;
+    }
+
+    .instagram-frame {
+      background: linear-gradient(145deg, #1a0000, #000);
+      animation-delay: 1.3s;
+    }
+
+    .tiktok-frame:hover,
+    .instagram-frame:hover {
       transform: scale(1.03);
-      box-shadow: 0 0 25px rgba(255, 31, 113, 0.6);
+      box-shadow: 0 0 30px #ff0000, inset 0 0 15px #330000;
     }
 
-    /* === Responsividad móvil === */
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
+    .redes-texto {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 8px #ff0000;
+    }
+
+    .instagram-frame a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px #ff0000;
+    }
+
+    .instagram-frame a:hover {
+      text-shadow: 0 0 20px #ff0000;
+    }
+
+    /* ---------- ANIMACIONES ---------- */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.15); opacity: 0.8; }
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #555;
+      text-shadow: 0 0 5px #220000;
+      animation: fadeIn 2s ease-in-out 1.6s forwards;
+      opacity: 0;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 600px) {
+      .tiktok-frame,
+      .instagram-frame {
+        width: 92%;
+        padding: 1.2rem;
       }
 
-      .socials iframe, .socials blockquote {
-        width: 95vw;
-        padding: 8px;
+      .redes-texto {
+        font-size: 1rem;
       }
 
-      /* En móviles no mostrar el cursor personalizado */
-      body {
-        cursor: auto;
+      .instagram-frame a {
+        font-size: 1.1rem;
       }
     }
   </style>
 </head>
-
 <body>
-  <h1>Dessesus Cinerum 🖤</h1>
+  <h1>🦇 Cinerum 🦇</h1>
 
-  <div class="socials">
-    <!-- Instagram -->
-    <blockquote 
-      class="instagram-media"
-      data-instgrm-permalink="https://www.instagram.com/dessesus_cinerum/"
-      data-instgrm-version="14">
-      <p>💀 Sígueme en Instagram 💀<br>
-      <a href="https://www.instagram.com/dessesus_cinerum" target="_blank">@dessesus_cinerum</a></p>
-    </blockquote>
+  <div class="cross">𓋹</div>
+  
+  <div class="tikok">mis redes debajo</div>
 
-    <!-- TikTok -->
-    <blockquote 
-      class="tiktok-embed"
+  <!-- TikTok -->
+  <div class="tiktok-frame">
+    <p class="redes-texto">seguime en TikTok 🖤</p>
+    <blockquote class="tiktok-embed"
       cite="https://www.tiktok.com/@dessesus_cinerum"
-      data-video-id=""
-      style="max-width: 400px;">
-      <p>🐈‍⬛ Mira mis videos en TikTok 🐈‍⬛<br>
-      <a href="https://www.tiktok.com/@dessesus_cinerum" target="_blank">@dessesus_cinerum</a></p>
+      data-unique-id="dessesus_cinerum"
+      data-embed-type="creator"
+      style="max-width: 780px; min-width: 288px;">
+      <section>
+        <a target="_blank" href="https://www.tiktok.com/@dessesus_cinerum?refer=creator_embed">
+          @dessesus_cinerum
+        </a>
+      </section>
     </blockquote>
+    <script async src="https://www.tiktok.com/embed.js"></script>
   </div>
 
-  <!-- Scripts de integración -->
-  <script async src="https://www.instagram.com/embed.js"></script>
-  <script async src="https://www.tiktok.com/embed.js"></script>
+  <!-- Instagram -->
+  <div class="instagram-frame">
+    <a href="https://www.instagram.com/dessesus_cinerum/" target="_blank">
+      Mi Instagram 🦇
+    </a>
+  </div>
+
+  <footer>
+    <p>hecho con amor para <strong>Ciner</strong> 🕯️</p>
+  </footer>
 </body>
 </html>
